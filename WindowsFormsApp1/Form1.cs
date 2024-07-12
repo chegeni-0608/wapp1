@@ -25,13 +25,13 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Add(textBox1.Text,textBox2.Text,Convert.ToInt32( textBox3.Text),rdbMale.Checked);
+            Add(textBox1.Text,textBox2.Text,Convert.ToInt64( textBox3.Text),rdbMale.Checked);
 
             MessageBox.Show("Succ.....");
            
         }
 
-        private void Add(string firtName,string lastname,int nationalCode,bool gender)
+        private void Add(string firtName,string lastname,long nationalCode,bool gender)
         {
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = "Data Source=.; Initial Catalog=CsharpSampleDB; Integrated Security=True";
@@ -47,6 +47,12 @@ namespace WindowsFormsApp1
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+         frmStudent fs=new frmStudent();
+            fs.ShowDialog();
         }
     }
 }
